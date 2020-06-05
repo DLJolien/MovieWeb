@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MovieListViewModel>;
+
+<table>
+    @foreach (MovieListViewModel movie in Model)
+    {
+    <tr> 
+        <td>@movie.Title</td>
+    </tr>
+    }
+    
+</table>
+

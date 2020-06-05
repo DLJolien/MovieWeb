@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Controllers",
+    "\\Views",
+    "\\Views\\Home",
+    "\\Views\\Movie",
+    "\\Views\\Shared"
   ],
+  "SelectedNode": "\\Controllers\\MovieController.cs",
   "PreviewInSolutionExplorer": false
 }
