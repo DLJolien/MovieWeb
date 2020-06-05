@@ -64,3 +64,4 @@ C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\MovieWeb.
 C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\MovieWeb.csproj.CopyComplete
 C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\Razor\Views\Hello\Welcome.g.cshtml.cs
 C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\Razor\Views\Today\Today.g.cshtml.cs
+C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\Razor\Views\Movie\Detail.g.cshtml.cs

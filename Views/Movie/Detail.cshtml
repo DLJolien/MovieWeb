@@ -1,0 +1,22 @@
+﻿
+@{
+    string title = "Movie Detail";
+}
+
+@model MovieWeb.Models.MovieDetailViewModel;
+
+<h2>@title</h2>
+
+<strong>Title</strong>
+<p>@Model.Title</p>
+
+<strong>Description</strong>
+<p>@Model.Description</p>
+
+<strong>Genre</strong>
+<p>@Model.Genre</p>
+
+<strong>Release Date</strong>
+<p>@Model.ReleaseDate.ToString("dd/mm/yyyy")</p>
+
+
