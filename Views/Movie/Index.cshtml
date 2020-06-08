@@ -4,7 +4,7 @@
     @foreach (MovieListViewModel movie in Model)
     {
     <tr> 
-        <td> <a href="movie/detail/@movie.Id">@movie.Title</a> </td>
+        <td> <a asp-controller="movie" asp-action="detail/@movie.Id">@movie.Title</a> </td>
         
     </tr>
     }  
