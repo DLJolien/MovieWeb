@@ -60,7 +60,8 @@ namespace MovieWeb
                 //routes.Routes.Insert(0, AttributeRouting.CreateAttributeMegaRoute(app.ApplicationServices));
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=home}/{action=index}/{id?}");
+                    template: "{controller=movie}/{action=index}/{id?}");
+               
             });
         }
     }

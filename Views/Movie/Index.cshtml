@@ -4,9 +4,9 @@
     @foreach (MovieListViewModel movie in Model)
     {
     <tr> 
-        <td>@movie.Title</td>
+        <td> <a href="movie/detail/@movie.Id">@movie.Title</a> </td>
+        
     </tr>
-    }
-    
+    }  
 </table>
 

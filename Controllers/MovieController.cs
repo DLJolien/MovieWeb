@@ -13,35 +13,12 @@ namespace MovieWeb.Controllers
     public class MovieController : Controller
     {
         private readonly IMovieDatabase _movieDatabase;
+        private int _counter = 1;
         public MovieController(IMovieDatabase movieDatabase)
         {
             _movieDatabase = movieDatabase;
         }
-        private Models.MovieDetailViewModel _movie1 = new Models.MovieDetailViewModel()
-        {
-            Id = 1,
-            Title = "Lion King",
-            Description = "Leeuwenkoning",
-            Genre = "Animatie-film",
-            ReleaseDate = new DateTime(1994, 5, 4)
-        };
-
-        private Models.MovieDetailViewModel _movie2 = new Models.MovieDetailViewModel()
-        {
-            Id = 2,
-            Title = "Lion King II",
-            Description = "Leeuwenkoning 2",
-            Genre = "Animatie-film",
-            ReleaseDate = new DateTime(1996, 5, 4)
-        };
-        private Models.MovieDetailViewModel _movie3 = new Models.MovieDetailViewModel()
-        {
-            Id = 3,
-            Title = "Titanic",
-            Description = "Sad",
-            Genre = "Drama",
-            ReleaseDate = new DateTime(1997, 8, 4)
-        };
+        
         //[Route("Detail")]
         public IActionResult Detail(int id)
         {
@@ -79,11 +56,14 @@ namespace MovieWeb.Controllers
         {
             _movieDatabase.Insert(new Movie
             {
+                Id = _counter,
                 Title = movie.Title,
                 Description = movie.Description,
                 Genre = movie.Genre,
                 ReleaseDate = movie.ReleaseDate
+                
             });
+            _counter++;
             return RedirectToAction("Index");
         }
     }
