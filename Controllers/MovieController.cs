@@ -53,16 +53,19 @@ namespace MovieWeb.Controllers
         [HttpPost]
         public IActionResult Create(MovieCreateViewModel movie)
         {
-         
-            _movieDatabase.Insert(new Movie
+            if (ModelState.IsValid)
             {
-                Title = movie.Title,
-                Description = movie.Description,
-                Genre = movie.Genre,
-                ReleaseDate = movie.ReleaseDate
-                
-            });
-            return RedirectToAction("Index");
+                _movieDatabase.Insert(new Movie
+                {
+                    Title = movie.Title,
+                    Description = movie.Description,
+                    Genre = movie.Genre,
+                    ReleaseDate = movie.ReleaseDate
+
+                });
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }
