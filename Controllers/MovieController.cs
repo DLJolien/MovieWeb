@@ -65,7 +65,7 @@ namespace MovieWeb.Controllers
                 });
                 return RedirectToAction("Index");
             }
-            return View();
+            return View(movie);
         }
     }
 }
