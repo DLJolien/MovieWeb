@@ -13,7 +13,6 @@ namespace MovieWeb.Controllers
     public class MovieController : Controller
     {
         private readonly IMovieDatabase _movieDatabase;
-        private int _counter = 1;
         public MovieController(IMovieDatabase movieDatabase)
         {
             _movieDatabase = movieDatabase;
@@ -54,16 +53,15 @@ namespace MovieWeb.Controllers
         [HttpPost]
         public IActionResult Create(MovieCreateViewModel movie)
         {
+         
             _movieDatabase.Insert(new Movie
             {
-                Id = _counter,
                 Title = movie.Title,
                 Description = movie.Description,
                 Genre = movie.Genre,
                 ReleaseDate = movie.ReleaseDate
                 
             });
-            _counter++;
             return RedirectToAction("Index");
         }
     }
