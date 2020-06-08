@@ -48,6 +48,7 @@ namespace MovieWeb.Controllers
         }
         public IActionResult Create()
         {
+            
             return View();
         }
         [HttpPost]

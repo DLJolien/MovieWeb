@@ -17,6 +17,8 @@ namespace MovieWeb.Models
         public string Description { get; set; }
 
         [DisplayName("Release Date")]
+        [Range(typeof(DateTime), "01/01/1900", "31/12/2070",
+        ErrorMessage = "Value must be between {1} and {2}")]
         public DateTime ReleaseDate { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Required to fill in")]
