@@ -46,10 +46,13 @@ namespace MovieWeb.Controllers
             return View(movies);
   
         }
+        [HttpGet]
         public IActionResult Create()
         {
+            MovieCreateViewModel vm = new MovieCreateViewModel();
+            vm.ReleaseDate = DateTime.Now;
             
-            return View();
+            return View(vm);
         }
         [HttpPost]
         public IActionResult Create(MovieCreateViewModel movie)

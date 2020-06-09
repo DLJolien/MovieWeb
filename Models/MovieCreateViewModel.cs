@@ -13,6 +13,7 @@ namespace MovieWeb.Models
         [MaxLength(30, ErrorMessage ="Max length is 30 characters")]
         public string Title { get; set; }
 
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Required to fill in")]
         [MaxLength(250, ErrorMessage = "Max length is 250 characters")]
         public string Description { get; set; }
 
@@ -21,7 +22,6 @@ namespace MovieWeb.Models
         ErrorMessage = "Value must be between {1} and {2}")]
         public DateTime ReleaseDate { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Required to fill in")]
         [MaxLength(30, ErrorMessage = "Max length is 30 characters")]
         public string Genre { get; set; }
 

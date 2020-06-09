@@ -14,9 +14,44 @@
 <p>@Model.Description</p>
 
 <strong>Genre</strong>
-<p>@Model.Genre</p>
+@{
+    if (string.IsNullOrEmpty(Model.Genre))
+    {
+        <p>No genre specified.</p>
+    }
+    else
+    {
+        <p>@Model.Genre</p>
+    }
+}
+
 
 <strong>Release Date</strong>
 <p>@Model.ReleaseDate.ToShortDateString() </p>
+<p>@CalculateReleaseDateMessage(Model.ReleaseDate)</p>
+
+
+@functions{ 
+    string CalculateReleaseDateMessage(DateTime releaseDate)
+    {
+        if(releaseDate.Date <= DateTime.Today.Date)
+        {
+            return "Out now";
+        }
+        else
+        {
+            double diffDays = (releaseDate - DateTime.Today).TotalDays;
+            if(diffDays == 1)
+            {
+                return $"The movie comes out tomorrow.";
+            }
+            else
+            {
+                return $"The movie comes out in {diffDays} days.";
+            }
+
+        }
+    }
+}
 
 
