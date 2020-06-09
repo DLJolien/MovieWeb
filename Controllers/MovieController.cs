@@ -4,6 +4,7 @@ using MovieWeb.Domain;
 using MovieWeb.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -70,6 +71,41 @@ namespace MovieWeb.Controllers
                 return RedirectToAction("Index");
             }
             return View(movie);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Movie movieToEdit = _movieDatabase.GetMovie(id);
+
+            MovieEditViewModel vm = new MovieEditViewModel()
+            {
+                Title = movieToEdit.Title,
+                Description = movieToEdit.Description,
+                Genre = movieToEdit.Genre,
+                ReleaseDate = movieToEdit.ReleaseDate
+            };
+            return View(vm);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, MovieEditViewModel vm)
+        {
+            if (!TryValidateModel(vm))
+            {
+                return View(vm);
+            }
+
+            Movie domainMovie = new Movie
+            {
+                Title = vm.Title,
+                Description = vm.Description,
+                Genre = vm.Genre,
+                ReleaseDate = vm.ReleaseDate
+            };
+
+            _movieDatabase.Update(id, domainMovie);
+
+            return RedirectToAction("Detail", new { Id = id});
         }
     }
 }

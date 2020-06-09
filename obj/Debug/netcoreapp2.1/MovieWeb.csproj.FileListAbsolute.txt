@@ -71,3 +71,4 @@ C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\Razor\Vie
 C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\MovieWeb.genruntimeconfig.cache
+C:\Users\Jolien\source\repos\DLJolien\MovieWeb\obj\Debug\netcoreapp2.1\Razor\Views\Movie\Edit.cshtml.g.cs
