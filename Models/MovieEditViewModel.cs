@@ -9,6 +9,7 @@ namespace MovieWeb.Models
 {
     public class MovieEditViewModel
     {
+        public int Id { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Required to fill in")]
         [MaxLength(30, ErrorMessage = "Max length is 30 characters")]
         public string Title { get; set; }

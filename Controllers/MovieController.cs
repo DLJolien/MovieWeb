@@ -79,6 +79,7 @@ namespace MovieWeb.Controllers
 
             MovieEditViewModel vm = new MovieEditViewModel()
             {
+                Id = id,
                 Title = movieToEdit.Title,
                 Description = movieToEdit.Description,
                 Genre = movieToEdit.Genre,
@@ -88,7 +89,7 @@ namespace MovieWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, MovieEditViewModel vm)
+        public IActionResult Edit(MovieEditViewModel vm)
         {
             if (!TryValidateModel(vm))
             {
@@ -97,15 +98,35 @@ namespace MovieWeb.Controllers
 
             Movie domainMovie = new Movie
             {
+                Id = vm.Id,
                 Title = vm.Title,
                 Description = vm.Description,
                 Genre = vm.Genre,
                 ReleaseDate = vm.ReleaseDate
             };
 
-            _movieDatabase.Update(id, domainMovie);
+            _movieDatabase.Update(domainMovie.Id, domainMovie);
 
-            return RedirectToAction("Detail", new { Id = id});
+            return RedirectToAction("Detail", new { Id = domainMovie.Id});
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            Movie movieToDelete = _movieDatabase.GetMovie(id);
+
+            MovieDeleteViewModel vm = new MovieDeleteViewModel()
+            {
+                Id = movieToDelete.Id,
+                Title = movieToDelete.Title,
+            };
+            return View(vm);
+        }
+        [HttpPost]
+        public IActionResult ConfirmDelete(MovieDeleteViewModel vm)
+        {
+           
+            _movieDatabase.Delete(vm.Id);
+            return RedirectToAction("Index");
         }
     }
 }
